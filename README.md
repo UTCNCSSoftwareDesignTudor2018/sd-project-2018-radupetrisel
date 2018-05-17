@@ -1,5 +1,11 @@
 Radu Petrisel
 
-You can find the related resources at https://github.com/UTCNCSSoftwareDesignTudor2018/Lab2018Info/
-
 Original commits: https://github.com/radupetrisel/sd-project-2018-radupetrisel
+
+- Layers + Client-Server
+- DP: Builder, Observer, Singleton, Bridge
+- 1 Many-To-Many and 2 One-To-Many
+- Maven
+- Server: Spring
+            Jackson
+- Client: -            

@@ -12,6 +12,6 @@ class Person: Decodable, CustomStringConvertible{
     var password: String?
     var faceApiId: String?
     
-    public var description: String { return self.firstName! + " " + self.lastName!}
+    var description: String { return self.firstName! + " " + self.lastName! }
  
 }

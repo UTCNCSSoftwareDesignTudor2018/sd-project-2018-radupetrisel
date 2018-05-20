@@ -6,20 +6,34 @@ class LoginController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
+    @IBOutlet weak var serverAddress: UITextField!
+    
+    var user: String?
     
     @objc func loginFunc(){
         
         let parameters: Parameters = ["email": email.text!, "password": password.text!]
-        Alamofire.request("http://192.168.100.6:1111/facebass/person/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
+        Alamofire.request("http://" + serverAddress.text! + ":1111/facebass/person/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
                 response in
             
-            print(response.result.value!)
-            if let person = try? JSONDecoder().decode(Person.self, from: response.data!){
-                print(person)
+            print(response.result.value ?? "err")
+            let status = response.result.value as! Int
+            if status == 1{
                 self.performSegue(withIdentifier: "toMain", sender: self)
+                self.user = self.email.text!
             }
         }
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "toMain"){
+            
+            let mainViewController = segue.destination as! MainController
+            mainViewController.email = email.text!
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -35,4 +49,18 @@ class LoginController: UIViewController {
     }
 
 
+}
+
+extension UIViewController{
+    
+    func hideKeyboard(){
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hide))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func hide(){
+        view.endEditing(true)
+    }
 }

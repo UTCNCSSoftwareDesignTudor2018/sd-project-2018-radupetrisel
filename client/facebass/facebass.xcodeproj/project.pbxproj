@@ -10,6 +10,7 @@
 		173EDC2920B099B800E102E7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173EDC2820B099B800E102E7 /* Person.swift */; };
 		17F9E6C020B1B60900A768DF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6BF20B1B60900A768DF /* MainController.swift */; };
 		17F9E6C220B1C74300A768DF /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6C120B1C74300A768DF /* ProfileController.swift */; };
+		17F9E6C620B1D10900A768DF /* PassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6C520B1D10900A768DF /* PassController.swift */; };
 		2CCC5B271392CB41BD8C2B25 /* Pods_facebass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EE43476D7534195AA640EF /* Pods_facebass.framework */; };
 		7C1BCE052089F20F00DF875B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1BCE042089F20F00DF875B /* AppDelegate.swift */; };
 		7C1BCE0A2089F21000DF875B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1BCE082089F21000DF875B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		173EDC2820B099B800E102E7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		17F9E6BF20B1B60900A768DF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		17F9E6C120B1C74300A768DF /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		17F9E6C520B1D10900A768DF /* PassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassController.swift; sourceTree = "<group>"; };
 		71EE43476D7534195AA640EF /* Pods_facebass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_facebass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1BCE012089F20F00DF875B /* facebass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C1BCE042089F20F00DF875B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17F9E6C320B1D0D100A768DF /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7C1BCE162089F4BE00DF875B /* LoginController.swift */,
+				7C1BCE042089F20F00DF875B /* AppDelegate.swift */,
+				17F9E6BF20B1B60900A768DF /* MainController.swift */,
+				17F9E6C120B1C74300A768DF /* ProfileController.swift */,
+				17F9E6C520B1D10900A768DF /* PassController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		17F9E6C420B1D0DF00A768DF /* entities */ = {
+			isa = PBXGroup;
+			children = (
+				173EDC2820B099B800E102E7 /* Person.swift */,
+			);
+			path = entities;
+			sourceTree = "<group>";
+		};
 		76B27322A9C8251997238985 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,15 +98,12 @@
 		7C1BCE032089F20F00DF875B /* facebass */ = {
 			isa = PBXGroup;
 			children = (
-				7C1BCE162089F4BE00DF875B /* LoginController.swift */,
-				7C1BCE042089F20F00DF875B /* AppDelegate.swift */,
+				17F9E6C420B1D0DF00A768DF /* entities */,
+				17F9E6C320B1D0D100A768DF /* controllers */,
 				7C1BCE082089F21000DF875B /* Main.storyboard */,
 				7C1BCE0B2089F21000DF875B /* Assets.xcassets */,
 				7C1BCE0D2089F21000DF875B /* LaunchScreen.storyboard */,
 				7C1BCE102089F21000DF875B /* Info.plist */,
-				173EDC2820B099B800E102E7 /* Person.swift */,
-				17F9E6BF20B1B60900A768DF /* MainController.swift */,
-				17F9E6C120B1C74300A768DF /* ProfileController.swift */,
 			);
 			path = facebass;
 			sourceTree = "<group>";
@@ -210,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F9E6C620B1D10900A768DF /* PassController.swift in Sources */,
 				17F9E6C220B1C74300A768DF /* ProfileController.swift in Sources */,
 				17F9E6C020B1B60900A768DF /* MainController.swift in Sources */,
 				173EDC2920B099B800E102E7 /* Person.swift in Sources */,

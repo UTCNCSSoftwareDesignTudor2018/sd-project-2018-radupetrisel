@@ -107,10 +107,10 @@
             </objects>
             <point key="canvasLocation" x="918.75" y="116.19718309859155"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile Controller-->
         <scene sceneID="8OE-ya-ARq">
             <objects>
-                <viewController id="cB2-Ut-P1w" sceneMemberID="viewController">
+                <viewController id="cB2-Ut-P1w" customClass="ProfileController" customModule="facebass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dld-i8-da3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,6 +197,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="nhI-Ls-Jot"/>
                     </view>
+                    <connections>
+                        <outlet property="address" destination="Zai-fZ-fCo" id="yze-Xd-kI2"/>
+                        <outlet property="cnp" destination="PuM-aN-ak7" id="BIQ-Og-dm3"/>
+                        <outlet property="email" destination="Cgh-eU-rJh" id="pun-3b-xkA"/>
+                        <outlet property="fullName" destination="ja5-Bg-Jua" id="cXw-Jw-fw6"/>
+                        <outlet property="phone" destination="wrx-hu-Zmg" id="O9D-nG-xv4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f5u-G5-i9D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

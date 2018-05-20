@@ -13,8 +13,6 @@ class MainController: UIViewController {
     @IBOutlet weak var buy: UIButton!
     @IBOutlet weak var viewPasses: UIButton!
     
-    var email: String?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.hideKeyboard()

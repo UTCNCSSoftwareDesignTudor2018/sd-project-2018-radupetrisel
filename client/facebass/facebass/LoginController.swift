@@ -8,8 +8,6 @@ class LoginController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var serverAddress: UITextField!
     
-    var user: String?
-    
     @objc func loginFunc(){
         
         let parameters: Parameters = ["email": email.text!, "password": password.text!]
@@ -20,21 +18,22 @@ class LoginController: UIViewController {
             let status = response.result.value as! Int
             if status == 1{
                 self.performSegue(withIdentifier: "toMain", sender: self)
-                self.user = self.email.text!
+                user = self.email.text!
+                server = self.serverAddress.text!
             }
         }
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == "toMain"){
-            
-            let mainViewController = segue.destination as! MainController
-            mainViewController.email = email.text!
-            
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if (segue.identifier == "toMain"){
+//
+//            let mainViewController = segue.destination as! MainController
+//            mainViewController.email = email.text!
+//
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

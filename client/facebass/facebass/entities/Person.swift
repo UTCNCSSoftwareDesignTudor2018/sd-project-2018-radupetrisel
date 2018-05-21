@@ -1,17 +1,18 @@
 import Foundation
 
-class Person: Decodable, CustomStringConvertible{
+class Person: Encodable, Decodable, CustomStringConvertible{
     
-    var firstName: String?
-    var lastName: String?
-    var cnp: String?
-    var address: String?
-    var email: String?
-    var phoneNumber: String?
-    var ispector: Bool?
-    var password: String?
-    var faceApiId: String?
+    var firstName: String = String()
+    var lastName: String = String()
+    var cnp: String = String()
+    var address: String = String()
+    var email: String = String()
+    var phoneNumber: String = String()
+    var type: Int = Int()
+    var password: String = String()
+    var faceApiId: String = String()
+    var passes: [Pass] = [Pass]()
     
-    var description: String { return self.firstName! + " " + self.lastName! }
+    var description: String { return self.email}
  
 }

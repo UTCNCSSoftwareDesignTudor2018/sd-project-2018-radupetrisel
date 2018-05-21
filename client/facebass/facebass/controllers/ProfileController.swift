@@ -21,15 +21,15 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request("http://" + server! + ":1111/facebass/person", method: .get, parameters: ["email": user!]).responseJSON{
+        Alamofire.request(server! + "/person", method: .get, parameters: ["email": user!]).responseJSON{
                 response in
             
             let person = (try? JSONDecoder().decode(Person.self, from: response.data!))!
-            self.fullName.text = person.firstName! + " " + person.lastName!
-            self.email.text = person.email!
-            self.cnp.text = person.cnp!
-            self.phone.text = person.phoneNumber!
-            self.address.text = person.address!
+            self.fullName.text = person.firstName + " " + person.lastName
+            self.email.text = person.email
+            self.cnp.text = person.cnp
+            self.phone.text = person.phoneNumber
+            self.address.text = person.address
             
         }
         

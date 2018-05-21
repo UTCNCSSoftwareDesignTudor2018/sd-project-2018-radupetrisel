@@ -7,6 +7,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var serverAddress: UITextField!
+    @IBOutlet weak var errorMessage: UILabel!
     
     @objc func loginFunc(){
         
@@ -16,24 +17,18 @@ class LoginController: UIViewController {
             
             print(response.result.value ?? "err")
             let status = response.result.value as! Int
-            if status == 1{
+            if status > -1{
                 self.performSegue(withIdentifier: "toMain", sender: self)
                 user = self.email.text!
-                server = self.serverAddress.text!
+                server = "http://" + self.serverAddress.text! + ":1111/facebass"
+                type = status
+            }
+            else {
+                self.errorMessage.isHidden = false
             }
         }
         
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//        if (segue.identifier == "toMain"){
-//
-//            let mainViewController = segue.destination as! MainController
-//            mainViewController.email = email.text!
-//
-//        }
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

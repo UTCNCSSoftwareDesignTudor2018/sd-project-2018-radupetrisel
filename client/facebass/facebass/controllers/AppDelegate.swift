@@ -10,6 +10,7 @@ import UIKit
 
 var user: String?
 var server: String?
+var type: Int?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

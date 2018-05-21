@@ -25,11 +25,11 @@ class ProfileController: UIViewController {
                 response in
             
             let person = (try? JSONDecoder().decode(Person.self, from: response.data!))!
-            self.fullName.text = person.firstName! + " " + person.lastName!
-            self.email.text = person.email!
-            self.cnp.text = person.cnp!
-            self.phone.text = person.phoneNumber!
-            self.address.text = person.address!
+            self.fullName.text = person.firstName + " " + person.lastName
+            self.email.text = person.email
+            self.cnp.text = person.cnp
+            self.phone.text = person.phoneNumber
+            self.address.text = person.address
             
         }
         

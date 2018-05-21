@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		173EDC2920B099B800E102E7 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173EDC2820B099B800E102E7 /* Person.swift */; };
+		177E457420B3229C0056C385 /* Bus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E457320B3229C0056C385 /* Bus.swift */; };
+		177E457620B323710056C385 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E457520B323710056C385 /* Station.swift */; };
+		177E457820B3237E0056C385 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177E457720B3237E0056C385 /* Pass.swift */; };
 		17F9E6C020B1B60900A768DF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6BF20B1B60900A768DF /* MainController.swift */; };
 		17F9E6C220B1C74300A768DF /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6C120B1C74300A768DF /* ProfileController.swift */; };
 		17F9E6C620B1D10900A768DF /* PassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F9E6C520B1D10900A768DF /* PassController.swift */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		173EDC2820B099B800E102E7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		177E457320B3229C0056C385 /* Bus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bus.swift; sourceTree = "<group>"; };
+		177E457520B323710056C385 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		177E457720B3237E0056C385 /* Pass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		17F9E6BF20B1B60900A768DF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		17F9E6C120B1C74300A768DF /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		17F9E6C520B1D10900A768DF /* PassController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,9 @@
 			isa = PBXGroup;
 			children = (
 				173EDC2820B099B800E102E7 /* Person.swift */,
+				177E457320B3229C0056C385 /* Bus.swift */,
+				177E457520B323710056C385 /* Station.swift */,
+				177E457720B3237E0056C385 /* Pass.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -229,11 +238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177E457420B3229C0056C385 /* Bus.swift in Sources */,
 				17F9E6C620B1D10900A768DF /* PassController.swift in Sources */,
+				177E457620B323710056C385 /* Station.swift in Sources */,
 				17F9E6C220B1C74300A768DF /* ProfileController.swift in Sources */,
 				17F9E6C020B1B60900A768DF /* MainController.swift in Sources */,
 				173EDC2920B099B800E102E7 /* Person.swift in Sources */,
 				7C1BCE052089F20F00DF875B /* AppDelegate.swift in Sources */,
+				177E457820B3237E0056C385 /* Pass.swift in Sources */,
 				7C1BCE172089F4BE00DF875B /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

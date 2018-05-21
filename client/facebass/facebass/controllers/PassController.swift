@@ -9,10 +9,14 @@
 import UIKit
 import Alamofire
 
-class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var linePicker: UIPickerView!
-    var lines: [String] = [String]()
+    var lines: [Bus] = [Bus]()
+    @IBOutlet weak var buy: UIButton!
+    @IBOutlet weak var selectedBusText: UITextField!
+    
+    var selectedBus: Bus?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,10 +24,12 @@ class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         self.linePicker.delegate = self
         self.linePicker.dataSource = self
         
+        self.selectedBusText.delegate = self
+        
         Alamofire.request("http://" + server! + ":1111/facebass/bus/getAll", method: .get).responseJSON{
                 response in
             
-                self.lines = (try? JSONDecoder().decode([String].self, from: response.data!))!
+                self.lines = (try? JSONDecoder().decode([Bus].self, from: response.data!))!
                 self.linePicker.reloadAllComponents()
         }
     }
@@ -31,6 +37,13 @@ class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        self.selectedBusText.text! = lines[row].line
+        self.selectedBus = lines[row]
+        self.linePicker.isHidden = true
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -42,7 +55,12 @@ class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.lines[row]
+        return self.lines[row].line
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        linePicker.isHidden = false
+        return false
     }
 
 }

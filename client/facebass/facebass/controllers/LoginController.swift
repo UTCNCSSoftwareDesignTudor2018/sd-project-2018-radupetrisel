@@ -20,7 +20,7 @@ class LoginController: UIViewController {
             if status > -1{
                 self.performSegue(withIdentifier: "toMain", sender: self)
                 user = self.email.text!
-                server = self.serverAddress.text!
+                server = "http://" + self.serverAddress.text! + ":1111/facebass"
                 type = status
             }
             else {

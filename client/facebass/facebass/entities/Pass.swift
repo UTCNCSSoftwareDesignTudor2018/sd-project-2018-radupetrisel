@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Pass: Decodable, CustomStringConvertible {
+class Pass: Encodable, Decodable, CustomStringConvertible {
     
     var description: String { return "Pass for " + self.bus.description + ", available until " + self.expiryDate.description}
     
@@ -18,6 +18,11 @@ class Pass: Decodable, CustomStringConvertible {
     init(for bus: Bus){
         self.bus = bus
         self.expiryDate = Date()
+    }
+    
+    var json: [String: Any]{
+        
+        return ["bus": bus, "expiryDate": expiryDate]
     }
     
 }

@@ -26,12 +26,24 @@ class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.selectedBusText.delegate = self
         
-        Alamofire.request("http://" + server! + ":1111/facebass/bus/getAll", method: .get).responseJSON{
+        Alamofire.request(server! + "/bus/getAll", method: .get).responseJSON{
                 response in
             
                 self.lines = (try? JSONDecoder().decode([Bus].self, from: response.data!))!
                 self.linePicker.reloadAllComponents()
         }
+        
+        buy.addTarget(self, action: #selector(buyPass), for: .touchUpInside)
+    }
+    
+    @objc func buyPass(){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        
+        let params: Parameters = ["bus": self.selectedBus!.json, "expiryDate": formatter.string(from: Date().addingTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>))]
+
+        Alamofire.request(server! + "/person/" + user! + "/addPass", method: .post, parameters: params, encoding: JSONEncoding.default)
     }
 
     override func didReceiveMemoryWarning() {

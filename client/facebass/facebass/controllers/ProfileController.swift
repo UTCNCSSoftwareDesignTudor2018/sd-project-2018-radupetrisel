@@ -21,7 +21,7 @@ class ProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request("http://" + server! + ":1111/facebass/person", method: .get, parameters: ["email": user!]).responseJSON{
+        Alamofire.request(server! + "/person", method: .get, parameters: ["email": user!]).responseJSON{
                 response in
             
             let person = (try? JSONDecoder().decode(Person.self, from: response.data!))!

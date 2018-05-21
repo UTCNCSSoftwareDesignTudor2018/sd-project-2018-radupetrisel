@@ -8,11 +8,14 @@
 
 import Foundation
 
-class Bus: Decodable, CustomStringConvertible{
+class Bus: Encodable, Decodable, CustomStringConvertible{
     
     var description: String{ return self.line}
 
     var line: String = String()
     var stations: [Station]  = [Station]()
     
+    var json: [String: Any]{
+        return ["line": self.line, "stations": []]
+    }
 }

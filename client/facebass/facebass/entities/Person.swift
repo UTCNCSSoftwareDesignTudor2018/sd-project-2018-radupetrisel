@@ -1,6 +1,6 @@
 import Foundation
 
-class Person: Decodable, CustomStringConvertible{
+class Person: Encodable, Decodable, CustomStringConvertible{
     
     var firstName: String = String()
     var lastName: String = String()

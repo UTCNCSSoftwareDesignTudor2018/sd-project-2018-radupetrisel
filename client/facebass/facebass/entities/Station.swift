@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Station: Decodable, CustomStringConvertible {
+class Station: Encodable, Decodable, CustomStringConvertible {
     
     var name: String = String()
 

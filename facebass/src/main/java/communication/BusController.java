@@ -18,9 +18,9 @@ public class BusController {
     private BusService busService;
 
     @GetMapping("/getAll")
-    public List<String> getAll(){
+    public List<Bus> getAll(){
 
-        return busService.getAll().stream().map(Bus::getName).collect(Collectors.toList());
+        return busService.getAll();
     }
 
 }

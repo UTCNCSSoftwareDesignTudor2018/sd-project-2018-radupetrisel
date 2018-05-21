@@ -24,7 +24,7 @@ public class Bus {
         return bus.getStations().stream().map(station -> new Station(station)).collect(Collectors.toList());
     }
 
-    @JsonProperty
+    @JsonProperty(value = "stations")
     public void stations(List<Station> stations) {
         bus.setStations(stations.stream().map(station -> station.getStation()).collect(Collectors.toList()));
     }
@@ -33,7 +33,7 @@ public class Bus {
         return bus.getName();
     }
 
-    @JsonProperty
+    @JsonProperty(value = "line")
     public void name(String name) {
         bus.setName(name);
     }

@@ -23,12 +23,17 @@ public class PersonService {
     public int login(String email, String password) {
 
         String encrypted = Base64.encode(password.getBytes());
-        Person_ person = personRepo.findByEmail(email);
 
-        if (person.getPassword().equals(encrypted))
-            return person.getType();
+        try {
+            Person_ person = personRepo.findByEmail(email);
 
-        return -1;
+            if (person.getPassword().equals(encrypted))
+                return person.getType();
+
+            return -1;
+        } catch (Exception e){
+            return -1;
+        }
     }
 
     public Person get(String email){
@@ -51,12 +56,13 @@ public class PersonService {
     public void addPass(String email, Pass pass) {
 
         Person_ person = personRepo.findByEmail(email);
-        person.addPass(pass.getPass());
-
-        personRepo.save(person);
 
         pass.owner(new Person(person));
         passService.create(pass);
+
+        person.addPass(pass.getPass());
+
+        personRepo.save(person);
     }
 
     public void update(Person person){

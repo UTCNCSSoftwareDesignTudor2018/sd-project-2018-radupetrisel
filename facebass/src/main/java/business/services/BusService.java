@@ -26,7 +26,7 @@ public class BusService {
     public List<Bus> getAll(){
         return busRepository.findAll().stream().map(Bus::new).collect(Collectors.toList());
     }
-    
+
     public void addStation(Bus bus, Station station){
         bus.addStation(station);
     }

@@ -19,7 +19,7 @@ public class PersonController {
 
     @PostMapping(value = "/login")
     public int login(@RequestBody Credential credential) {
-        return personService.login(credential.getEmail(), credential.getPassword()) + 1;
+        return personService.login(credential.getEmail(), credential.getPassword());
     }
 
     @GetMapping
@@ -44,7 +44,8 @@ public class PersonController {
     }
 
     @PostMapping(value = "{email}/addPass")
-    public void addPass(@RequestBody Pass pass,@PathVariable("email") String email){
+    public void addPass(@PathVariable("email") String email, @RequestBody Pass pass){
+
         personService.addPass(email, pass);
     }
 

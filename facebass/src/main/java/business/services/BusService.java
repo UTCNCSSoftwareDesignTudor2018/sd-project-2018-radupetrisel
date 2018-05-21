@@ -6,6 +6,9 @@ import dataAccess.repositories.BusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class BusService {
 
@@ -20,6 +23,10 @@ public class BusService {
         return new Bus(busRepository.findByName(lineName));
     }
 
+    public List<Bus> getAll(){
+        return busRepository.findAll().stream().map(Bus::new).collect(Collectors.toList());
+    }
+    
     public void addStation(Bus bus, Station station){
         bus.addStation(station);
     }

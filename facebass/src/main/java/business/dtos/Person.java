@@ -90,13 +90,13 @@ public class Person {
         person.setPhoneNumber(phoneNumber);
     }
 
-    public boolean isInspector() {
-        return person.isInspector();
+    public int isInspector() {
+        return person.getType();
     }
 
     @JsonProperty
-    public void inspector(boolean inspector) {
-        person.setInspector(inspector);
+    public void inspector(int type) {
+        person.setType(type);
     }
 
     public String getFaceApiId() {

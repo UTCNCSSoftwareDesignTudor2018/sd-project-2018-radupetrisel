@@ -33,8 +33,8 @@ public class Person_ {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "inspector")
-    private boolean inspector;
+    @Column(name = "type")
+    private int type = 0;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -93,6 +93,14 @@ public class Person_ {
         this.address = address;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -107,14 +115,6 @@ public class Person_ {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public boolean isInspector() {
-        return inspector;
-    }
-
-    public void setInspector(boolean inspector) {
-        this.inspector = inspector;
     }
 
     public String getFaceApiId() {
@@ -136,15 +136,15 @@ public class Person_ {
     @Override
     public String toString() {
         return "Person_{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
+                "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", cnp='" + cnp + '\'' +
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", inspector=" + inspector +
+                ", type=" + type +
                 ", password='" + password + '\'' +
+                ", faceApiId='" + faceApiId + '\'' +
                 '}';
     }
 

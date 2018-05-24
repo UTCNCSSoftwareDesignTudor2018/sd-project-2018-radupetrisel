@@ -28,12 +28,12 @@ public class Person {
     }
 
     public List<Pass> getPasses() {
-        return person.getPasses().stream().map(pass -> new Pass(pass)).collect(Collectors.toList());
+        return person.getPasses().stream().map(Pass::new).collect(Collectors.toList());
     }
 
-    @JsonSetter
+    @JsonProperty
     public void passes(List<Pass> passes) {
-        person.setPasses(passes.stream().map(pass -> pass.getPass()).collect(Collectors.toList()));
+        person.setPasses(passes.stream().map(Pass::getPass).collect(Collectors.toList()));
     }
 
     public String getFirstName() {

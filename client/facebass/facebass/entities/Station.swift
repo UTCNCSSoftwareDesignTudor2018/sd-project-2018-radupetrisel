@@ -11,6 +11,7 @@ import UIKit
 class Station: Encodable, Decodable, CustomStringConvertible {
     
     var name: String = String()
+    var busses: [String] = [String]()
 
     var description: String { return self.name}
 }

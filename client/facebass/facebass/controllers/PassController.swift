@@ -41,7 +41,7 @@ class PassController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        let params: Parameters = ["bus": self.selectedBus!.json, "expiryDate": formatter.string(from: Date().addingTimeInterval(<#T##timeInterval: TimeInterval##TimeInterval#>))]
+        let params: Parameters = ["bus": self.selectedBus!.json, "expiryDate": formatter.string(from: Date())]
 
         Alamofire.request(server! + "/person/" + user! + "/addPass", method: .post, parameters: params, encoding: JSONEncoding.default)
     }

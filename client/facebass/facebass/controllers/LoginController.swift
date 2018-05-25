@@ -8,6 +8,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var serverAddress: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var singUp: UIButton!
     
     @objc func loginFunc(){
         
@@ -18,10 +19,10 @@ class LoginController: UIViewController {
             print(response.result.value ?? "err")
             let status = response.result.value as! Int
             if status > -1{
-                self.performSegue(withIdentifier: "toMain", sender: self)
                 user = self.email.text!
                 server = "http://" + self.serverAddress.text! + ":1111/facebass"
                 type = status
+                self.performSegue(withIdentifier: "toMain", sender: self)
             }
             else {
                 self.errorMessage.isHidden = false

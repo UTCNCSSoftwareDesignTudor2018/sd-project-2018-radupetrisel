@@ -12,12 +12,26 @@ class Pass: Encodable, Decodable, CustomStringConvertible {
     
     var description: String { return "Pass for " + self.bus.description + ", available until " + self.expiryDate.description}
     
-    var expiryDate: Date
-    var bus: Bus
+    private var expiryDate_: Date?
+    private var bus_: Bus?
+    
+    var expiryDate: Date{
+        get{ return self.expiryDate_!}
+        set{ self.expiryDate_ = newValue}
+    }
+    var bus: Bus{
+        get{ return self.bus_!}
+        set{ self.bus_ = newValue}
+    }
+    
+    init(){
+        expiryDate_ = Date()
+        bus_ = Bus()
+    }
     
     init(for bus: Bus){
-        self.bus = bus
-        self.expiryDate = Date()
+        self.bus_ = bus
+        self.expiryDate_ = Date()
     }
     
     var json: [String: Any]{

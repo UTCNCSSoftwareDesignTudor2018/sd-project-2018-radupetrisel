@@ -8,6 +8,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var serverAddress: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var singUp: UIButton!
     
     @objc func loginFunc(){
         

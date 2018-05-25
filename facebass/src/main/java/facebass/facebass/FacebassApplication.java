@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 @EntityScan(basePackages = {"dataAccess.entities"})
 @EnableJpaRepositories("dataAccess.repositories")
@@ -13,7 +15,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class FacebassApplication {
 
     public static void main(String[] args) {
-    
+
         SpringApplication.run(FacebassApplication.class, args);
     }
 }

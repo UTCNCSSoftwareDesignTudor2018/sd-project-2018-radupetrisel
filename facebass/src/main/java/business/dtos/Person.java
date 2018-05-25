@@ -90,12 +90,12 @@ public class Person {
         person.setPhoneNumber(phoneNumber);
     }
 
-    public int isInspector() {
+    public int getType() {
         return person.getType();
     }
 
     @JsonProperty
-    public void inspector(int type) {
+    public void type(int type) {
         person.setType(type);
     }
 

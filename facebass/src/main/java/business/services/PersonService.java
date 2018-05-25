@@ -38,8 +38,7 @@ public class PersonService {
 
     public Person get(String email){
         System.out.println(email);
-        Person person = new Person(personRepo.findByEmail(email));
-        return person;
+        return new Person(personRepo.findByEmail(email));
     }
 
     public boolean register(Person person) {
@@ -84,12 +83,18 @@ public class PersonService {
         return person.getPasses().stream().filter(pass -> bus.getBus().equals(pass.getBus())).anyMatch(pass -> pass.getExpiryDate().isBefore(LocalDate.now()));
     }
 
-    public void addFace(String email, String faceId){
+    public boolean addFace(String email, String faceId){
 
-        Person_ person = personRepo.findByEmail(email);
+        try {
+            Person_ person = personRepo.findByEmail(email);
 
-        person.setFaceApiId(faceId);
+            person.setFaceApiId(faceId);
 
-        personRepo.save(person);
+            personRepo.save(person);
+
+            return true;
+        } catch(Exception e){
+            return false;
+        }
     }
 }

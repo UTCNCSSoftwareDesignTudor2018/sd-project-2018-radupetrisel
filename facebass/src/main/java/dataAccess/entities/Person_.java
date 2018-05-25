@@ -4,6 +4,7 @@ import com.sun.org.apache.xml.internal.security.utils.Base64;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -43,7 +44,7 @@ public class Person_ {
     private String faceApiId;
 
     @OneToMany(mappedBy = "owner")
-    private List<Pass_> passes;
+    private List<Pass_> passes = new ArrayList<>();
 
     public List<Pass_> getPasses() {
         return passes;

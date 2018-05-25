@@ -16,6 +16,6 @@ class Bus: Encodable, Decodable, CustomStringConvertible{
     var stations: [Station]  = [Station]()
     
     var json: [String: Any]{
-        return ["line": self.line, "stations": stations]
+        return ["line": self.line, "stations": []]
     }
 }

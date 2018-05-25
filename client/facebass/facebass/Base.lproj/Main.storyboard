@@ -201,6 +201,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5n1-Zz-qUO">
+                                <rect key="frame" x="133" y="462" width="38" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="QLR-HS-UCV"/>
@@ -210,6 +217,7 @@
                         <outlet property="cnp" destination="Qup-Ze-VHD" id="0Tj-6a-hXe"/>
                         <outlet property="create" destination="Co0-f4-RVV" id="OQL-u5-pmR"/>
                         <outlet property="email" destination="0Gp-u0-Y2j" id="b0m-3R-Ngk"/>
+                        <outlet property="error" destination="5n1-Zz-qUO" id="BNX-2U-bKM"/>
                         <outlet property="firstName" destination="Zfm-5y-ukV" id="hhZ-Uo-PsN"/>
                         <outlet property="lastName" destination="MAP-AQ-ZFr" id="eXf-0L-TEK"/>
                         <outlet property="password" destination="RMc-q0-PAs" id="u6E-uk-Pwb"/>
@@ -238,34 +246,38 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="41j-Ui-xZe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6a-p9-wOm">
-                                <rect key="frame" x="131" y="200" width="63" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVb-x3-2Dz">
+                                <rect key="frame" x="124" y="320" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add photo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrX-Cw-tVy">
+                                <rect key="frame" x="129" y="206" width="63" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Buy pass"/>
                                 <connections>
-                                    <segue destination="g3e-Dg-etL" kind="show" id="NdP-Tf-eFr"/>
+                                    <segue destination="g3e-Dg-etL" kind="show" id="PzR-Z4-MKd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQg-8H-ztD">
-                                <rect key="frame" x="117" y="282" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="View passes"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbP-tj-XdS">
-                                <rect key="frame" x="122" y="244" width="81" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3e-16-HLE">
+                                <rect key="frame" x="120" y="244" width="81" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="View profile"/>
                                 <connections>
-                                    <segue destination="cB2-Ut-P1w" kind="show" id="rFE-4c-jcT"/>
+                                    <segue destination="cB2-Ut-P1w" kind="show" id="OeN-kA-wih"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwd-J7-yDk">
+                                <rect key="frame" x="117" y="282" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="View passes"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="flE-rC-41P"/>
                     </view>
                     <connections>
-                        <outlet property="buy" destination="s6a-p9-wOm" id="oBN-qG-cbt"/>
-                        <outlet property="viewPasses" destination="KQg-8H-ztD" id="a83-ab-WPF"/>
+                        <outlet property="addPhoto" destination="dVb-x3-2Dz" id="YtS-gH-JnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rft-0X-XyP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -420,24 +432,9 @@
             </objects>
             <point key="canvasLocation" x="1742" y="-652"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7wM-Oy-WaB">
-            <objects>
-                <viewController id="LFR-al-fsV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ned-TJ-Npt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="01h-1E-BpY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rHS-Qb-4Qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1785" y="854"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rMz-gu-BmV"/>
-        <segue reference="y5j-pF-gTy"/>
+        <segue reference="41j-Ui-xZe"/>
     </inferredMetricsTieBreakers>
 </document>

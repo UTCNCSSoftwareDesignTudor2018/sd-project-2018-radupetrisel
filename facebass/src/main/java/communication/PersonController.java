@@ -5,6 +5,8 @@ import business.dtos.Person;
 import business.services.PersonService;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,6 +49,14 @@ public class PersonController {
     public void addPass(@PathVariable("email") String email, @RequestBody Pass pass){
 
         personService.addPass(email, pass);
+    }
+
+    @PostMapping(value = "{email}/addFace")
+    public void addFace(@PathVariable("email") String email, @RequestBody JsonNode json){
+
+        String faceId = json.get("faceId").asText();
+
+        personService.addFace(email, faceId);
     }
 
 }

@@ -52,11 +52,11 @@ public class PersonController {
     }
 
     @PostMapping(value = "{email}/addFace")
-    public void addFace(@PathVariable("email") String email, @RequestBody JsonNode json){
+    public boolean addFace(@PathVariable("email") String email, @RequestBody JsonNode json){
 
         String faceId = json.get("faceId").asText();
 
-        personService.addFace(email, faceId);
+        return personService.addFace(email, faceId);
     }
 
 }

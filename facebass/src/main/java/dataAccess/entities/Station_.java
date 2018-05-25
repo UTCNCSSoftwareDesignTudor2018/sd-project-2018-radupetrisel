@@ -1,6 +1,7 @@
 package dataAccess.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,7 +16,7 @@ public class Station_ {
     private String name;
 
     @ManyToMany(mappedBy = "stations")
-    private List<Bus_> busses;
+    private List<Bus_> busses = new ArrayList<>();
 
     public List<Bus_> getBusses() {
         return busses;

@@ -39,7 +39,7 @@ class CreateAccountController: UIViewController {
             guard response.result.isSuccess else { return }
             
             let key = "010fcff9d7fe45d584811ef37e83d87b"
-            let endpoint = "https://westeurope.api.cognitive.microsoft.com/face/v1.0/facebass/persons"
+            let endpoint = "https://westeurope.api.cognitive.microsoft.com/face/v1.0/persongroups/facebass/persons"
             
             let headers = ["Ocp-Apim-Subscription-Key": key]
             let body = ["name": self.firstName.text! + " " + self.lastName.text!]
@@ -48,13 +48,21 @@ class CreateAccountController: UIViewController {
                 
                 response in
                 
-                print(response.data!)
-                let json = try? JSONSerialization.jsonObject(with: response.data!, options: []) as! [String: Any]
-                let id = json!["personId"]
+                print(response.result.value)
+                guard let id = try? JSONDecoder().decode(PersonId.self, from: response.data!) else{
+                    return
+                }
                 
-                let params: Parameters = ["faceId": id!]
+                let params: Parameters = ["faceId": id.personId]
                 
-                Alamofire.request(server! + "/person/" + self.email.text! + "/addFace", method: .post, parameters: params, encoding: JSONEncoding.default)
+                Alamofire.request("http://" + self.serverAddress.text! + ":1111/facebass/person/" + self.email.text! + "/addFace", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON{
+                    response in
+                    
+                    print(response.result.value)
+                    if (response.result.value as! Bool){
+                        self.performSegue(withIdentifier: "toLogin", sender: self)
+                    }
+                }
                 
             }
         }

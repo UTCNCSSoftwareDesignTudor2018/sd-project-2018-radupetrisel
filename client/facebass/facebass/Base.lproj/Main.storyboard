@@ -215,6 +215,7 @@
                         <outlet property="password" destination="RMc-q0-PAs" id="u6E-uk-Pwb"/>
                         <outlet property="phoneNumber" destination="eNZ-O8-DWU" id="9E6-Vc-akp"/>
                         <outlet property="serverAddress" destination="Asx-to-0yq" id="8ah-Oo-1xq"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="y5j-pF-gTy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rB7-aI-bzX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -437,5 +438,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="rMz-gu-BmV"/>
+        <segue reference="y5j-pF-gTy"/>
     </inferredMetricsTieBreakers>
 </document>

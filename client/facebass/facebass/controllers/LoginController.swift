@@ -8,20 +8,28 @@ class LoginController: UIViewController {
     @IBOutlet weak var login: UIButton!
     @IBOutlet weak var serverAddress: UITextField!
     @IBOutlet weak var errorMessage: UILabel!
-    @IBOutlet weak var singUp: UIButton!
     
     @objc func loginFunc(){
         
         let parameters: Parameters = ["email": email.text!, "password": password.text!]
         Alamofire.request("http://" + serverAddress.text! + ":1111/facebass/person/login", method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON {
                 response in
-            
-            print(response.result.value ?? "err")
+
             let status = response.result.value as! Int
             if status > -1{
                 user = self.email.text!
                 server = "http://" + self.serverAddress.text! + ":1111/facebass"
                 type = status
+                
+                Alamofire.request(server! + "/person?email=" + user!, method: .get, encoding: JSONEncoding.default).responseJSON{
+                    
+                    response in
+                    
+                    print(response.result.value!)
+                    faceApiId = (try? JSONDecoder().decode(Person.self, from: response.data!))?.faceApiId
+                    
+                }
+                
                 self.performSegue(withIdentifier: "toMain", sender: self)
             }
             else {

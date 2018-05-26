@@ -11,6 +11,7 @@ import UIKit
 var user: String?
 var server: String?
 var type: Int?
+var faceApiId: String?
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -36,7 +36,7 @@ class Pass: Encodable, Decodable, CustomStringConvertible {
     
     var json: [String: Any]{
         
-        return ["bus": bus, "expiryDate": expiryDate]
+        return ["bus": bus.json, "expiryDate": expiryDate]
     }
     
 }

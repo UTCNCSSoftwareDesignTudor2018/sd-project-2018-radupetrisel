@@ -14,4 +14,8 @@ class Station: Encodable, Decodable, CustomStringConvertible {
     var busses: [String] = [String]()
 
     var description: String { return self.name}
+    
+    var json: [String: Any]{
+        return ["name": name, "busses": busses]
+    }
 }

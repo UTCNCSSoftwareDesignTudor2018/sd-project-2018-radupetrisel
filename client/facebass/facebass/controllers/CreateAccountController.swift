@@ -20,6 +20,7 @@ class CreateAccountController: UIViewController {
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var error: UILabel!
     
     @objc func createAccount(){
         
@@ -48,7 +49,6 @@ class CreateAccountController: UIViewController {
                 
                 response in
                 
-                print(response.result.value)
                 guard let id = try? JSONDecoder().decode(PersonId.self, from: response.data!) else{
                     return
                 }
@@ -58,9 +58,10 @@ class CreateAccountController: UIViewController {
                 Alamofire.request("http://" + self.serverAddress.text! + ":1111/facebass/person/" + self.email.text! + "/addFace", method: .post, parameters: params, encoding: JSONEncoding.default).responseJSON{
                     response in
                     
-                    print(response.result.value)
                     if (response.result.value as! Bool){
                         self.performSegue(withIdentifier: "toLogin", sender: self)
+                    } else {
+                        self.error.isHidden = false
                     }
                 }
                 

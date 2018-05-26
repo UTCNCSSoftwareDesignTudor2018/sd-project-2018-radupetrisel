@@ -1,16 +1,12 @@
 package communication;
 
+import business.dtos.Bus;
 import business.dtos.Pass;
 import business.dtos.Person;
 import business.services.PersonService;
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/person")
@@ -59,4 +55,8 @@ public class PersonController {
         return personService.addFace(email, faceId);
     }
 
+    @GetMapping(value = "/inspect")
+    public boolean check(@RequestParam("faceId") String faceApiId, @RequestBody Bus bus){
+        return personService.check(faceApiId, bus);
+    }
 }

@@ -190,14 +190,6 @@ struct FaceRectangle{
     
 }
 
-struct Pixel{
-    
-    var r: Float
-    var g: Float
-    var b: Float
-    
-}
-
 enum Type: String{
     case camera = "Camera"
     case photoLibrary = "Photo Library"

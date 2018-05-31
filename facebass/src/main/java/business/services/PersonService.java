@@ -4,6 +4,7 @@ import business.dtos.Bus;
 import business.dtos.Pass;
 import business.dtos.Person;
 import com.sun.org.apache.xml.internal.security.utils.Base64;
+import dataAccess.entities.Bus_;
 import dataAccess.entities.Person_;
 import dataAccess.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,9 @@ public class PersonService {
 
     @Autowired
     private PassService passService;
+
+    @Autowired
+    private BusService busService;
 
     public int login(String email, String password) {
 
@@ -77,10 +81,12 @@ public class PersonService {
         personRepo.save(person);
     }
 
-    public boolean check(String personApiId, Bus bus){
+    public boolean check(String personApiId, String line){
+
+        Bus_ bus = busService.get(line).getBus();
 
         Person_ person = personRepo.findByFaceApiId(personApiId);
-        return person.getPasses().stream().filter(pass -> bus.getBus().equals(pass.getBus())).anyMatch(pass -> pass.getExpiryDate().isBefore(LocalDate.now()));
+        return person.getPasses().stream().filter(pass -> bus.equals(pass.getBus())).anyMatch(pass -> pass.getExpiryDate().isBefore(LocalDate.now().plusMonths(1).plusDays(1)));
     }
 
     public boolean addFace(String email, String faceId){

@@ -56,7 +56,8 @@ public class PersonController {
     }
 
     @GetMapping(value = "/inspect")
-    public boolean check(@RequestParam("faceId") String faceApiId, @RequestBody Bus bus){
+    public boolean check(@RequestParam("faceId") String faceApiId, @RequestParam("bus") String bus){
+        System.out.println("inspecting " + bus);
         return personService.check(faceApiId, bus);
     }
 }

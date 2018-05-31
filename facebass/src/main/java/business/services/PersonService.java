@@ -86,7 +86,7 @@ public class PersonService {
         Bus_ bus = busService.get(line).getBus();
 
         Person_ person = personRepo.findByFaceApiId(personApiId);
-        return person.getPasses().stream().filter(pass -> bus.equals(pass.getBus())).anyMatch(pass -> pass.getExpiryDate().isBefore(LocalDate.now().plusMonths(1).plusDays(1)));
+        return person.getPasses().stream().filter(pass -> bus.equals(pass.getBus())).anyMatch(pass -> pass.getExpiryDate().isAfter(LocalDate.now().minusDays(1)));
     }
 
     public boolean addFace(String email, String faceId){
